@@ -1,20 +1,19 @@
-
+import 'package:brainwired/api.dart';
 import 'package:flutter/material.dart';
 
+
+// UserDetailsScreen displaying details of a specific user
 class UserDetailsScreen extends StatelessWidget {
-  final dynamic user;
-
-  // ignore: use_super_parameters
+  final User user;
   const UserDetailsScreen({Key? key, required this.user}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 166, 185, 195),
-        elevation: 0, // Remove the app bar shadow
+        elevation: 0,
         title: Text(
-          user['name'],
+          user.name,
           style: const TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
@@ -33,7 +32,7 @@ class UserDetailsScreen extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: const Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -43,7 +42,7 @@ class UserDetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'ID: ${user['id']}',
+                'ID: ${user.id}',
                 style: const TextStyle(
                   fontSize: 18.0,
                   color: Colors.black,
@@ -61,7 +60,7 @@ class UserDetailsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               Text(
-                '${user['address']['street']}, ${user['address']['suite']}, ${user['address']['city']}',
+                '${user.address['street']}, ${user.address['suite']}, ${user.address['city']}',
                 style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.grey[800],
@@ -69,14 +68,13 @@ class UserDetailsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                'Email: ${user['email']}',
+                'Email: ${user.email}',
                 style: const TextStyle(
                   fontSize: 18.0,
                   color: Color.fromARGB(255, 79, 87, 92),
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              // Add more styled user details as needed
             ],
           ),
         ),
