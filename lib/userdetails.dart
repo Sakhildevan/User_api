@@ -1,10 +1,10 @@
 import 'package:brainwired/api.dart';
 import 'package:flutter/material.dart';
 
-
 // UserDetailsScreen displaying details of a specific user
 class UserDetailsScreen extends StatelessWidget {
   final User user;
+  // ignore: use_super_parameters
   const UserDetailsScreen({Key? key, required this.user}) : super(key: key);
   @override
   Widget build(BuildContext context) {

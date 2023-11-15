@@ -25,12 +25,13 @@ class User {
     );
   }
 }
+
 // UserProvider class to manage the list of users
 class UserProvider with ChangeNotifier {
   List<User> _users = [];
 
   List<User> get users => _users;
- // Function to fetch users' data asynchronously
+  // Function to fetch users' data asynchronously
   Future<void> fetchUsers() async {
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
@@ -44,4 +45,3 @@ class UserProvider with ChangeNotifier {
     }
   }
 }
-

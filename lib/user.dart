@@ -34,38 +34,32 @@ class UserListScreen extends StatelessWidget {
                       title: Text(user.name),
                       subtitle: Text(user.email),
                       trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                      // onTap: () {
-                      //    // Navigate to UserDetailsScreen when ListTile is tapped
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => UserDetailsScreen(user: user),
-                      //     ),
-                      //   );
-                      // },
                       onTap: () {
-  Navigator.push(
-    context,
-    PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: 500),
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: UserDetailsScreen(user: user),
-        );
-      },
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(1.0, 0.0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        );
-      },
-    ),
-  );
-},
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            transitionDuration:
+                                const Duration(milliseconds: 500),
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: UserDetailsScreen(user: user),
+                              );
+                            },
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: const Offset(1.0, 0.0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
                     ),
                     const Divider(
                       height: 1,
